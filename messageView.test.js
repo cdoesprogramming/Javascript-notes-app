@@ -10,10 +10,19 @@ describe('MessageView', () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
 
     const view = new MessageView();
-
     const buttonEl = document.querySelector('#show-message-button');
     buttonEl.click();
-
     expect(document.querySelector('#message')).not.toBeNull();
+  });
+
+  it('hides the message', () => {
+    document.body.innerHTML = fs.readFileSync('./index.html');
+
+    const view = new MessageView();
+    const buttonEl = document.querySelector('#show-message-button');
+    buttonEl.click();
+    const buttonhideEl = document.querySelector('#hide-message-button');
+    buttonhideEl.click();
+    expect(document.querySelector('#message')).toBeNull();
   });
 });
