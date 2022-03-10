@@ -1,7 +1,6 @@
 (() => {
-  var __getOwnPropNames = Object.getOwnPropertyNames;
   var __commonJS = (cb, mod) => function __require() {
-    return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+    return mod || (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   };
 
   // messageView.js
@@ -23,7 +22,8 @@
           console.log("Thanks for clicking me!");
           let div = document.createElement("div");
           div.setAttribute("id", "message");
-          div.innerText = "This is a message displayed by JavaScript";
+          let input = document.querySelector("#message-input");
+          div.innerText = input.value;
           this.mainContainerEl.append(div);
         }
         hideMessage() {
